@@ -29,32 +29,32 @@ class size extends PluginCommand
                     if (strtolower($args[0]) == 'mini')
                     {
                         $sender->setScale('0.1');
-                        $sender->sendMessage(loader::PREFIX.'§7You've set your size to §a'.$args[0]);
+                        $sender->sendMessage(loader::PREFIX."§7You've set your size to §a".$args[0]);
                     }
                     elseif (strtolower($args[0]) == 'baby')
                     {
                         $sender->setScale('0.5');
-                        $sender->sendMessage(loader::PREFIX.'§7You've set your size to §a'.$args[0]);
+                        $sender->sendMessage(loader::PREFIX."§7You've set your size to §a".$args[0]);
                     }
                     elseif (strtolower($args[0]) == 'normal')
                     {
                         $sender->setScale('1');
-                        $sender->sendMessage(loader::PREFIX.'§7You've set your size to §a'.$args[0]);
+                        $sender->sendMessage(loader::PREFIX."§7You've set your size to §a".$args[0]);
                     }
                     elseif (strtolower($args[0]) == 'big')
                     {
                         $sender->setScale('2.5');
-                        $sender->sendMessage(loader::PREFIX.'§7You've set your size to §a'.$args[0]);
+                        $sender->sendMessage(loader::PREFIX."§7You've set your size to §a".$args[0]);
                     }
                     elseif (strtolower($args[0]) == 'monster')
                     {
                         $sender->setScale('5');
-                        $sender->sendMessage(loader::PREFIX.'§7You've set your size to §a'.$args[0]);
+                        $sender->sendMessage(loader::PREFIX."§7You've set your size to §a".$args[0]);
                     }
                     elseif (strtolower($args[0]) == 'giant')
                     {
                         $sender->setScale('10');
-                        $sender->sendMessage(loader::PREFIX.'§7You've set your size to §a'.$args[0]);
+                        $sender->sendMessage(loader::PREFIX."§7You've set your size to §a".$args[0]);
                     } 
                     elseif (strtolower($args[0]) == 'about')
                     { 
