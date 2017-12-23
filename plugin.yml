@@ -1,0 +1,9 @@
+name: Sizer
+main: CapricornOfLynx\Sizer\loader
+api: [3.0.0-ALPHA10]
+version: 2.2.0
+author: CapricornOfLynx
+website: https://github.com/CapricornOfLynx
+permissions:
+    player.size:
+        default: op
