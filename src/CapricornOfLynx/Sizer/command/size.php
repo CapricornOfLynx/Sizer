@@ -22,7 +22,7 @@ class size extends PluginCommand
     {
          if ($sender instanceof Player) 
         {
-            if ($sender->hasPermission("dokiacraft.size"))
+            if ($sender->hasPermission("player.size"))
              {
                 if (count($args) == 1) 
                 {
