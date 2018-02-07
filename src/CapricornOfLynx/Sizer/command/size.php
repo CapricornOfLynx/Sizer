@@ -36,7 +36,7 @@ class size extends PluginCommand
                     }
                     elseif (strtolower($args[0]) == 'about')
                     {
-                        $sender->sendMessage(loader::PREFIX.'§7This plugin was written by the German developer §aCapricornOfLynx');
+                        $sender->sendMessage(loader::PREFIX.'§7Sizer by §aCapricornOfLynx §7and §aDokiaCraft.net');
                     }
                     elseif (strtolower($args[0]) == 'reset')
                     {
