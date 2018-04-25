@@ -22,7 +22,15 @@ class size extends PluginCommand
     {
             if ($sender->hasPermission('player.size'))
              {
-				$player = $this->getPlugin()->getServer()->getPlayer($args[0]);
+				$player = null;
+				if ($args[0] == "me"){
+					$player = $sender;
+				} else {
+					$player = $this->getPlugin()->getServer()->getPlayer($args[0]);
+					if (!$player){
+						$sender->sendMessage(loader::PREFIX.'§7Player not found!');
+					}
+				}
                 if (count($args) == 2) 
                 {
                     if (is_numeric($args[1]))
@@ -31,11 +39,9 @@ class size extends PluginCommand
                         {
                             $player->setScale($args[1]);
                             $sender->sendMessage(loader::PREFIX.'§7You have set §a'.$args[0].'§7\'s size to §a'.$args[1]);
-                        }
-			else
-			{
-			    $sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$args[0].")");
-			}
+                        } else {
+							$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$args[0].")");
+						}
                     }
                     elseif (strtolower($args[1]) == 'about')
                     {
