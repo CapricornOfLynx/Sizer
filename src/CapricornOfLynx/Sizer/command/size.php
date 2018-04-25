@@ -20,8 +20,6 @@ class size extends PluginCommand
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-         if (true) 
-        {
             if ($sender->hasPermission('player.size'))
              {
 				$player = $this->getPlugin()->getServer()->getPlayer($args[0]);
@@ -34,6 +32,10 @@ class size extends PluginCommand
                             $player->setScale($args[1]);
                             $sender->sendMessage(loader::PREFIX.'§7You have set §a'.$args[0].'§7\'s size to §a'.$args[1]);
                         }
+			else
+			{
+			    $sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$args[0].")");
+			}
                     }
                     elseif (strtolower($args[1]) == 'about')
                     {
@@ -63,5 +65,4 @@ class size extends PluginCommand
         {
             $sender->sendMessage(loader::PREFIX.loader::CONSOLE_SENDER);
         }
-    }
 }
