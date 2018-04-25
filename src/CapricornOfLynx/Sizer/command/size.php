@@ -15,32 +15,33 @@ class size extends PluginCommand
     {
         parent::__construct("size", $plugin);
         $this->setDescription('change your size.');
-        $this->setUsage('/size <0.1-10|about>');
+        $this->setUsage('/size <player> <0.1-10|about>');
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-         if ($sender instanceof Player) 
+         if (true) 
         {
             if ($sender->hasPermission('player.size'))
              {
-                if (count($args) == 1) 
+				$player = $this->getPlugin()->getServer()->getPlayer($args[0]);
+                if (count($args) == 2) 
                 {
-                    if (is_numeric($args[0]))
+                    if (is_numeric($args[1]))
                     {
-                        if ($args[0] >= 0.1 && $args[0] <= 10)
+                        if ($args[1] >= 0.1 && $args[1] <= 10)
                         {
-                            $sender->setScale($args[0]);
-                            $sender->sendMessage(loader::PREFIX.'§7You have set your size to §a'.$args[0]);
+                            $player->setScale($args[1]);
+                            $sender->sendMessage(loader::PREFIX.'§7You have set §a'.$args[0].'§7\'s size to §a'.$args[1]);
                         }
                     }
-                    elseif (strtolower($args[0]) == 'about')
+                    elseif (strtolower($args[1]) == 'about')
                     {
                         $sender->sendMessage(loader::PREFIX.'§7Sizer by §aCapricornOfLynx §7and §aDokiaCraft.net');
                     }
-                    elseif (strtolower($args[0]) == 'reset')
+                    elseif (strtolower($args[1]) == 'reset')
                     {
-                        $sender->setScale(1);
+                        $player->setScale(1);
                         $sender->sendMessage(loader::PREFIX.'§7Your size has been reset');
                     }
                     else
@@ -50,7 +51,7 @@ class size extends PluginCommand
                 }
                 else
                 {
-                    $sender->sendMessage(loader::PREFIX.'§7Use: §a/size <0.1-10|about>');
+                    $sender->sendMessage(loader::PREFIX.'§7Use: §a/size <player> <0.1-10|about>');
                 }
             }
             else
