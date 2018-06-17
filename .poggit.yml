@@ -4,4 +4,5 @@ branches:
 projects:
   Sizer:
     path: ""
+    icon: "icon.png"
 ...
