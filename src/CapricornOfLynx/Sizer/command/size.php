@@ -36,7 +36,7 @@ class size extends PluginCommand {
 						$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$args[0].")");
 					}
                 } elseif (strtolower($args[1]) == 'about') {
-                    $sender->sendMessage(loader::PREFIX.'§7Sizer by §aCapricornOfLynx §7and §aDokiaCraft.net');
+                    $sender->sendMessage(loader::PREFIX.'§7Sizer by §aCapricornOfLynx §7modded by §athelucyclub');
                 } elseif (strtolower($args[1]) == 'reset') {
                     $player->setScale(1);
                     $sender->sendMessage(loader::PREFIX.'§7Your size has been reset');
