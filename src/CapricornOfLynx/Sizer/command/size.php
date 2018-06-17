@@ -21,7 +21,7 @@ class size extends PluginCommand {
 			$player = null;
             if (count($args) == 2) {
 				if ($args[0] == "me" || $args[0] == "@p"){
-					if ($sender instanceof Player){
+					if (!$sender instanceof Player){
 						$scale = "error"; 
 						$name = "CONSOLE"; 
 					} else { 
