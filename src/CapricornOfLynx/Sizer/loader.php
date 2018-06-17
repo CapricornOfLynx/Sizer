@@ -14,12 +14,12 @@ const CONSOLE_SENDER = '§4You have to be in-game';
     {
            commandloader::registerAll($this);
         
-        $this->getLogger()->info("§aEnabled!");
+        $this->getServer()->getLogger()->info(self::PREFIX."§aEnabled!");
     }
 
     public function onDisable()
     {
-        $this->getLogger()->info("§4Disabled!");
+        $this->getServer()->getLogger()->info(self::PREFIX."§4Disabled!");
     }
 
     
