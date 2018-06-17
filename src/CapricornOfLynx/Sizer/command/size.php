@@ -30,8 +30,19 @@ class size extends PluginCommand {
 				}
                 if (is_numeric($args[1])) {
                     if ($args[1] >= 0.1 && $args[1] <= 10) {
-                        $player->setScale($args[1]);
-                        $sender->sendMessage(loader::PREFIX.'§7You have set §a'.$args[0].'§7\'s size to §a'.$args[1]);
+			    if ($args[0] == "me" || $args[0] == "@p") {
+				    $player->setScale($args[1]);
+				    $player->sendMessage(loader::PREFIX."§7You set your size to §a".$args[1]);
+			} else {
+				    if($sender->hasPermission('player.size.other') {
+					    $player->setScale($args[1]);
+					    $player->sendMessage(loader::PREFIX.'§a'.$sender->getName().' §7set your size to §a'.$args[1]);
+					    $sender->sendMessage(loader::PREFIX. '§You set §a'$player->getName()'/s §7size to §a'.$args[1]);
+				} else {
+					    $sender->sendMessage(loader::PREFIX. "You can't change size from other players');
+			}
+			}
+			
                     } else {
 						$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$args[0].")");
 					}
@@ -44,7 +55,7 @@ class size extends PluginCommand {
                     $sender->sendMessage(loader::PREFIX.'§7You must specify the size numerically!');
                 }
             } else {
-                $sender->sendMessage(loader::PREFIX.'§7Use: §a/size <player (@p for yourself)> <0.1-10|about>');
+                $sender->sendMessage(loader::PREFIX.'§7Use: §a/size <player (@p for yourself)> <0.1-10|about|reset>');
             }
         } else {
             $sender->sendMessage(loader::PREFIX.'§7You are not allowed to execute this command!');
