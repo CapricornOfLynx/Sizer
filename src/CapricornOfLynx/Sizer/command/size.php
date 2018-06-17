@@ -37,20 +37,20 @@ class size extends PluginCommand {
 				    if($sender->hasPermission('player.size.other')) {
 					    $player->setScale($args[1]);
 					    $player->sendMessage(loader::PREFIX.'§a'.$sender->getName().' §7set your size to §a'.$args[1]);
-					    $sender->sendMessage(loader::PREFIX. '§You set §a'.$player->getName().'/s §7size to §a'.$args[1]);
+					    $sender->sendMessage(loader::PREFIX. '§7You set §a'.$player->getName().'/s §7size to §a'.$args[1]);
 				} else {
-					    $sender->sendMessage(loader::PREFIX. "You can't change size from other players");
+					    $sender->sendMessage(loader::PREFIX. "§7You can't change size from other players");
 			}
 			}
 			
                     } else {
-						$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$args[0].")");
+		$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$sender->getScale().")");
 					}
                 } elseif (strtolower($args[1]) == 'about') {
-                    $sender->sendMessage(loader::PREFIX.'§7Sizer by §aCapricornOfLynx §7modded by §athelucyclub');
+                    $sender->sendMessage(loader::PREFIX.'§a'.$player->getName().'/s §7size is §a'.$player->getScale());
                 } elseif (strtolower($args[1]) == 'reset') {
                     $player->setScale(1);
-                    $sender->sendMessage(loader::PREFIX.'§7Your size has been reset');
+                    $sender->sendMessage(loader::PREFIX.'§7Size has been reset');
                 } else {
                     $sender->sendMessage(loader::PREFIX.'§7You must specify the size numerically!');
                 }
