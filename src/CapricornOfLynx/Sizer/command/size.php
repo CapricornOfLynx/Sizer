@@ -12,8 +12,8 @@ class size extends PluginCommand {
 
     public function __construct(Plugin $plugin) {
         parent::__construct("size", $plugin);
-        $this->setDescription('change your size.');
-        $this->setUsage('/size <player> <0.1-10|about>');
+        $this->setDescription('change your or other players size.');
+        $this->setUsage('/size <player(@p or me for yourself> <0.1-10|about|reset>');
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
@@ -46,7 +46,7 @@ class size extends PluginCommand {
                     } else {
 		$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$sender->getScale().")");
 					}
-                } elseif (strtolower($args[1]) == 'about') {
+                } elseif (strtolower($args[1]) == 'about' && $sender instanceof Player) {
                     $sender->sendMessage(loader::PREFIX.'§a'.$player->getName().'/s §7size is §a'.$player->getScale());
                 } elseif (strtolower($args[1]) == 'reset') {
                     $player->setScale(1);
@@ -55,7 +55,7 @@ class size extends PluginCommand {
                     $sender->sendMessage(loader::PREFIX.'§7You must specify the size numerically!');
                 }
             } else {
-                $sender->sendMessage(loader::PREFIX.'§7Use: §a/size <player (@p for yourself)> <0.1-10|about|reset>');
+                $sender->sendMessage(loader::PREFIX.'§7Use: §a/size <player (@p or me for yourself)> <0.1-10|about|reset>');
             }
         } else {
             $sender->sendMessage(loader::PREFIX.'§7You are not allowed to execute this command!');
