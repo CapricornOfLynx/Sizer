@@ -2,7 +2,7 @@ name: Sizer
 main: CapricornOfLynx\Sizer\loader
 api: [3.0.0-ALPHA11, 3.0.0-ALPHA12]
 version: 2.2.7
-authors: [CapricornOfLynx, DokiaCraft]
+authors: [CapricornOfLynx]
 permissions:
     player.size:
         default: op
