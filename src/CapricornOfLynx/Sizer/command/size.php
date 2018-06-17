@@ -37,7 +37,7 @@ class size extends PluginCommand {
 				    if($sender->hasPermission('player.size.other') {
 					    $player->setScale($args[1]);
 					    $player->sendMessage(loader::PREFIX.'§a'.$sender->getName().' §7set your size to §a'.$args[1]);
-					    $sender->sendMessage(loader::PREFIX. '§You set §a'$player->getName()'/s §7size to §a'.$args[1]);
+					    $sender->sendMessage(loader::PREFIX. '§You set §a'.$player->getName().'/s §7size to §a'.$args[1]);
 				} else {
 					    $sender->sendMessage(loader::PREFIX. "You can't change size from other players');
 			}
