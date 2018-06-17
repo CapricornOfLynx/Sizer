@@ -20,11 +20,20 @@ class size extends PluginCommand {
         if ($sender->hasPermission('player.size')) {
 			$player = null;
             if (count($args) == 2) {
-				if (($args[0] == "me" || $args[0] == "@p") && ($sender instanceof Player)){
+				if ($args[0] == "me" || $args[0] == "@p"){
+					if ($sender instanceof Player){
+						$scale = "error"; 
+						$name = "CONSOLE"; 
+					} else { 
 					$player = $sender;
+						$name = $player->getName();
+					$scale = $player->getScale();
+					}
 				} else {
 					$player = $this->getPlugin()->getServer()->getPlayer($args[0]);
 					if (!$player){
+						$scale = $player->getScale();
+						$name = $player->getName();
 						$sender->sendMessage(loader::PREFIX.'§7Player not found!');
 					}
 				}
@@ -46,8 +55,8 @@ class size extends PluginCommand {
                     } else {
 		$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$sender->getScale().")");
 					}
-                } elseif (strtolower($args[1]) == 'about' && $sender instanceof Player) {
-                    $sender->sendMessage(loader::PREFIX.'§a'.$player->getName().'/s §7size is §a'.$player->getScale());
+                } elseif (strtolower($args[1]) == 'about') {
+                    $sender->sendMessage(loader::PREFIX.'§a'.$name.'/s §7size is §a'.$scale);
                 } elseif (strtolower($args[1]) == 'reset') {
                     $player->setScale(1);
                     $sender->sendMessage(loader::PREFIX.'§7Size has been reset');
