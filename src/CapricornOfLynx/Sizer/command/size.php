@@ -32,9 +32,10 @@ class size extends PluginCommand {
 				} else {
 					$player = $this->getPlugin()->getServer()->getPlayer($args[0]);
 					if (!$player){
+						$sender->sendMessage(loader::PREFIX.'§7Player not found!');
+					} else {
 						$scale = $player->getScale();
 						$name = $player->getName();
-						$sender->sendMessage(loader::PREFIX.'§7Player not found!');
 					}
 				}
                 if (is_numeric($args[1])) {
