@@ -24,6 +24,7 @@ class size extends PluginCommand {
 					if (!$sender instanceof Player){
 						$scale = "error"; 
 						$name = "CONSOLE"; 
+                 $player = "Server";
 					} else { 
 					$player = $sender;
 						$name = $player->getName();
@@ -41,16 +42,21 @@ class size extends PluginCommand {
                 if (is_numeric($args[1])) {
                     if ($args[1] >= 0.1 && $args[1] <= 10) {
 			    if ($args[0] == "me" || $args[0] == "@p") {
+                if($sender instanceof Player){
 				    $player->setScale($args[1]);
 				    $player->sendMessage(loader::PREFIX."§7You set your size to §a".$args[1]);
+                } else {
+                    $sender->sendMessage(loader::PREFIX."§4you can't change size from Console.");
+                }
 			} else {
 				    if($sender->hasPermission('player.size.other')) {
 					    if($player){
 					    $player->setScale($args[1]);
 					    $player->sendMessage(loader::PREFIX.'§a'.$sender->getName().' §7set your size to §a'.$args[1]);
 					    $sender->sendMessage(loader::PREFIX. '§7You set §a'.$player->getName().'/s §7size to §a'.$args[1]);
-				} } else {
-					    $sender->sendMessage(loader::PREFIX. "§7You can't change size from other players");
+				    }
+            } else {
+					    $sender->sendMessage(loader::PREFIX. "§7You can't change size from other players | use: /size me <size>");
 			}
 			}
 			
@@ -58,10 +64,16 @@ class size extends PluginCommand {
 		$sender->sendMessage(loader::PREFIX."§7Size invalid! (min = 0.1; max = 10; you = ".$sender->getScale().")");
 					}
                 } elseif (strtolower($args[1]) == 'about') {
+                    if($player){
                     $sender->sendMessage(loader::PREFIX.'§a'.$name.'/s §7size is §a'.$scale);
+                }
                 } elseif (strtolower($args[1]) == 'reset') {
+                    if($player){
+                    if($sender instanceof Player){
                     $player->setScale(1);
                     $sender->sendMessage(loader::PREFIX.'§7Size has been reset');
+                } else { $sender->sendMessage(loader::PREFIX."§4you can't change size from Console."); }
+                }
                 } else {
                     $sender->sendMessage(loader::PREFIX.'§7You must specify the size numerically!');
                 }
